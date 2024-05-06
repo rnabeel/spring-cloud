@@ -1,0 +1,33 @@
+POST:
+http://localhost:8888/security/auth/user/register
+
+{
+    "firstname":"nabeel",
+    "lastname":"ahmad",
+    "email":"nabeelx64@icloud.com",
+    "password":"ki11",
+    "role":"ADMIN"
+}
+
+POST:
+login
+
+http://localhost:8888/security/auth/user/authenticate
+
+{
+    "email":"nabeelx64@icloud.com",
+    "password":"ki11"
+}   
+
+PATCH change password:
+http://localhost:8888/security/user/changePassword
+
+{
+    "oldPassword":"ki11",
+    "newPassword":"11223344",
+    "email":"nabeelx64@icloud.com"
+}
+
+Get:
+UCO test:
+http://localhost:8888/uco/hello

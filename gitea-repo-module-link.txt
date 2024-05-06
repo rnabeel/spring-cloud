@@ -1,0 +1,54 @@
+https://ct.mfsys.com.pk/Digital-banking/digital-banking-service.git
+
+-- Clone all below service in digital-banking-gateway
+
+https://ct.mfsys.com.pk/Digital-banking/digital-banking-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/digital-Security-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/digital-banking-gateway.git
+
+https://ct.mfsys.com.pk/Digital-banking/online-lending-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/online-banking-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/online-customer-onboarding-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/notification-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/digital-Security-service.git
+
+https://ct.mfsys.com.pk/Digital-banking/gateway-config-service.git
+
+git branch pre-development
+git checkout pre-development
+
+################################################################
+
+git clone https://ct.mfsys.com.pk/Digital-banking/digital-banking-service.git -b pre-development
+
+git clone https://ct.mfsys.com.pk/Digital-banking/digital-banking-gateway.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/gateway-registry-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/online-lending-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/online-banking-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/online-customer-onboarding-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/notification-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/digital-Security-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/gateway-config-service.git -b pre-development
+git clone https://ct.mfsys.com.pk/Digital-banking/UCO-BS.git - b pre-development
+
+
+################################################################
+
+gateway-registry-service.git       --> REGISTRY_SERVER              --> 8761
+digital-Security-service.git       --> SECURITY_SERVICE             --> 8801
+gateway-config-service.git         --> CONFIGURATION_SERVICE        --> 8802
+notification-service.git           --> NOTIFICATION_SERVICE         --> 8803
+online-banking-service             --> ONLINE_BANKING_SERVICE       --> 8804
+online-customer-onboarding-service --> CUSTOMER_ONBOARDING_SERVICE  --> 8805
+online-lending-service.git         --> ONLINE_LENDING_SERVICE       --> 8806
+digital-banking-gateway            --> DIGITAL_API_GATEWAY_SERVICE  --> 8807
+
+
+
+

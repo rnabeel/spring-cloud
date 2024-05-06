@@ -1,0 +1,36 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: SECURITY-SERVICE
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url:  jdbc:mysql://localhost:3306/dgsecurity
+    #    username: root
+    #    password: root
+    url: jdbc:mysql://${DGSECURITY_SQL_DB_MACHINE_IP}/dgsecurity
+    username: ${DGSECURITY_SQL_DB_USER}
+    password: ${DGSECURITY_SQL_DB_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 604800000  # Expiration time for the access token 7 days
+      refresh-token:
+        expiration: 86400000  # Expiration time for the refresh token 1 day

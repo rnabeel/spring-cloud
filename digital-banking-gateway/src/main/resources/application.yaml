@@ -1,0 +1,39 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: SECURITY-SERVICE
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/security/**
+          filters:
+            - AuthenticationFilter
+
+        - id: UCO-SERVICE
+          uri: lb://UCO-SERVICE
+          predicates:
+            - Path=/uco/**
+          filters:
+            - AuthenticationFilter
+
+        - id: NOTIFICATION-SERVICE
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/notification/**
+          filters:
+            - AuthenticationFilter
+
+  application:
+    name: DIGITAL_API_GATEWAY_SERVICE
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+

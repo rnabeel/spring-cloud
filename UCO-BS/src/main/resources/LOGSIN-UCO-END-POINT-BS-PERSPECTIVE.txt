@@ -1,0 +1,132 @@
+
+
+POST=> WhiteListed
+SignupStep1RequestModel {
+  final String username;
+  final String password;
+  final String email;
+  final String phone;
+  final String userRole; (hard code for now)
+  final String channelCode;
+  final String porOrgacode;
+  final boolean isOtpRequired;
+}
+
+response:
+{
+200
+}
+
+OTP verify request model:
+
+POST=> WhiteListed
+SignupVerifyOtpRequestModel {
+  final String username;
+  final String email;
+  final String phone;
+  final String channelCode;
+  final String porOrgacode;
+  String obpPincode;
+}
+
+Response: {
+200
+}
+
+on success 
+
+POST=> WhiteListed
+SignupStep2RequestModel {
+  final String username;
+  final String email;
+  final String phone;
+  final String name;
+  final String address;
+  final String identificationType;
+  final String identificationNumber;
+  final boolean isKycAdded;
+  final String kycType;
+  final String kycDocumentId1; (Either base64 or separate requset ==> Discussion)
+  final String kycDocumentId2; (Either base64 or separate requset ==> Discussion)
+  final String userRole;
+  final String channelCode;
+  final String porOrgacode;
+}
+
+user gets persisted in the db
+request sent to ciihive for CRM and Deposit
+custCode acc number saves in UCO database.
+Response {200}
+
+=========================================
+
+
+
+
+-----------Login REQ RES -----------
+Request:
+POST=>
+LoginRequestModel {
+  final String username/email;
+  final String password;
+  final String channelCode;
+  final boolean isOtpRequired;
+  final String porOrgacode;
+}
+
+Response:
+POST=>
+class LoginResponseModel {
+  String cmpFirstname;
+  String cmpLastname;
+  String cmpCuststatus;
+  String plcLocacode;
+  String cmpCustlastlogin;
+  String cmpCustcode;
+  String userRole;
+  String jwtToken;
+  boolean isKycVerified;  
+}
+
+
+
+if opt flag is true then an opt will be sent to user email once done then user can enter the otp and below request will be sent to the uco.
+
+-----------OTP REQ RES -----------
+POST=>
+class LoginVerifyOtpRequestModel {
+  String cmpUserId / email;
+  String cmpCustpassword;
+  String channelCode;
+  String obpPincode;
+  String porOrgacode;
+  String String jwtToken;
+}
+
+if otp gets matched then success else forbidden
+response {
+200 
+}
+
+view balance request:
+
+user balance wont be shown in the begning but simply ***** this
+if user want to see there balance then
+POST=>
+class ViewBalanceRequestModel {
+  String plcLocacode;
+  String cmpCustcode;
+  String mbmBkmsNumber;
+  String jwtToken;
+}
+
+response
+class ViewBalanceResponseModel {
+ String mbmBkmsbalance
+}
+
+
+=======================
+
+
+

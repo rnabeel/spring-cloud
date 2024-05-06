@@ -1,0 +1,22 @@
+server:
+  port: 8803
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+Mail:
+  UserName: testmfsys@gmail.com
+  UserPassword: hphhvugevvtjqkya
+twilio:
+  account_sid: 1223
+  auth_token: 2123
+  from_number: 2122
